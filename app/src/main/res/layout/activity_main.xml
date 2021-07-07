@@ -22,6 +22,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:background="#1077C8"
+            android:fontFamily="casual"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             android:text="Заголовок"
@@ -35,7 +36,7 @@
             android:layout_height="56dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
+            android:text="Ваше имя" />
 
         <Button
             android:id="@+id/button"
