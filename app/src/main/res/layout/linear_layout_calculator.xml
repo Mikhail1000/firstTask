@@ -11,24 +11,24 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:orientation="horizontal"
         android:layout_margin="5dp">
+
 
         <Button
             android:id="@+id/button_square"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="5dp"
             android:layout_weight="1"
             android:text="@string/square"
-            android:textSize="25sp"
-            android:layout_marginHorizontal="5dp"
-            />
+            android:textSize="25sp" />
 
         <Button
             android:id="@+id/button_square_root"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/square_root"
             android:textSize="25sp"
@@ -36,7 +36,7 @@
         <Button
             android:id="@+id/button_delete"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="C"
             android:textSize="25sp"
@@ -44,7 +44,7 @@
         <Button
             android:id="@+id/button_backspace"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/backspace"
             android:textSize="25sp"
