@@ -7,14 +7,11 @@
     android:background="@drawable/nature_sky"
     android:paddingHorizontal="40dp">
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_margin="5dp">
-
 
         <Button
             android:id="@+id/button_square"
@@ -38,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="C"
+            android:text="@string/clean"
             android:textSize="25sp"
             android:layout_marginHorizontal="5dp"/>
         <Button
@@ -52,7 +49,6 @@
 
     </LinearLayout>
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -64,7 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="7"
+            android:text="@string/_7"
             android:textSize="25sp"
             android:layout_marginHorizontal="5dp"
             />
@@ -74,7 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="8"
+            android:text="@string/_8"
             android:textSize="25sp"
             android:layout_marginHorizontal="5dp"/>
         <Button
@@ -82,7 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="9"
+            android:text="@string/_9"
             android:textSize="25sp"
             android:layout_marginHorizontal="5dp"/>
         <Button
@@ -90,7 +86,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="/"
+            android:text="@string/division"
             android:textSize="25sp"
             android:layout_marginHorizontal="5dp"/>
 
@@ -107,7 +103,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="4"
+            android:text="@string/_4"
             android:textSize="25sp"
             android:layout_marginHorizontal="5dp"
             />
@@ -117,7 +113,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="5"
+            android:text="@string/_5"
             android:textSize="25sp"
             android:layout_marginHorizontal="5dp"/>
         <Button
@@ -125,7 +121,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="6"
+            android:text="@string/_6"
             android:textSize="25sp"
             android:layout_marginHorizontal="5dp"/>
         <Button
@@ -133,7 +129,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="*"
+            android:text="@string/multiply"
             android:textSize="25sp"
             android:layout_marginHorizontal="5dp"/>
 
@@ -150,7 +146,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="1"
+            android:text="@string/_1"
             android:textSize="25sp"
             android:layout_marginHorizontal="5dp"
             />
@@ -160,7 +156,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="2"
+            android:text="@string/_2"
             android:textSize="25sp"
             android:layout_marginHorizontal="5dp"/>
         <Button
@@ -168,7 +164,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="3"
+            android:text="@string/_3"
             android:textSize="25sp"
             android:layout_marginHorizontal="5dp"/>
         <Button
@@ -176,7 +172,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="-"
+            android:text="@string/minus"
             android:textSize="25sp"
             android:layout_marginHorizontal="5dp"/>
 
@@ -193,18 +189,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="0"
+            android:text="@string/_0"
             android:textSize="25sp"
             android:layout_marginHorizontal="5dp"
             />
-
 
         <Button
             android:id="@+id/button_point"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="."
+            android:text="@string/point"
             android:textSize="25sp"
             android:layout_marginHorizontal="5dp"/>
 
@@ -213,7 +208,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="="
+            android:text="@string/equal"
             android:textSize="25sp"
             android:layout_marginHorizontal="5dp"
             />
@@ -223,9 +218,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="+"
+            android:text="@string/plus"
             android:textSize="25sp"
             android:layout_marginHorizontal="5dp"/>
-
     </LinearLayout>
 </LinearLayout>
