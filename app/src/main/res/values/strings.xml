@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">firstTask</string>
+    <string name="app_name">firstAndroid</string>
     <string name="square">x<sup><small>2</small></sup></string>
     <string name="square_root">&#8730; </string>
     <string name="backspace">&#9668; </string>

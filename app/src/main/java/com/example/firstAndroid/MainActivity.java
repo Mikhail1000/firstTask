@@ -1,4 +1,4 @@
-package com.example.firsttask;
+package com.example.firstAndroid;
 
 import androidx.appcompat.app.AppCompatActivity;
 
