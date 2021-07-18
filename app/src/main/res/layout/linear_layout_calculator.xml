@@ -7,6 +7,52 @@
     android:background="@drawable/nature_sky"
     android:paddingHorizontal="40dp">
 
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="5dp">
+
+        <Button
+            android:id="@+id/button_square"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/square"
+            android:textSize="25sp"
+            android:layout_marginHorizontal="5dp"
+            />
+
+        <Button
+            android:id="@+id/button_square_root"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/square_root"
+            android:textSize="25sp"
+            android:layout_marginHorizontal="5dp"/>
+        <Button
+            android:id="@+id/button_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="C"
+            android:textSize="25sp"
+            android:layout_marginHorizontal="5dp"/>
+        <Button
+            android:id="@+id/button_backspace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/backspace"
+            android:textSize="25sp"
+            android:layout_marginHorizontal="5dp"/>
+
+    </LinearLayout>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -147,7 +193,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="1"
+            android:text="0"
             android:textSize="25sp"
             android:layout_marginHorizontal="5dp"
             />

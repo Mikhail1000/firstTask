@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">firstTask</string>
-
+    <string name="square">x<sup>2</sup></string>
+    <string name="square_root">&#8730; </string>
+    <string name="backspace">&#9668; </string>
 </resources>
