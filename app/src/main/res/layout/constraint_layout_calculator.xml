@@ -6,6 +6,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <TextView
+        android:id="@+id/entryFieldCalc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/button_square"
+        app:layout_constraintStart_toStartOf="@id/button_square"
+        app:layout_constraintEnd_toEndOf="@id/button_backspace"
+        android:text="@string/_0"
+        android:textSize="50dp"
+        android:textColor="@color/white"
+        android:background="@color/cardview_dark_background"
+        android:textAlignment="textEnd"
+        android:paddingHorizontal="15dp"/>
+
     <Button
         android:id="@+id/button_square"
         android:layout_height="wrap_content"
