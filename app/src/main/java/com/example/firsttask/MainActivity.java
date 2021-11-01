@@ -1,5 +1,6 @@
 package com.example.firsttask;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -17,6 +18,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ArrayList<String> numbers = new ArrayList<>();
     ArrayList<String> signs = new ArrayList<>();
 
+    private DataCalculator dataCalculator;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +27,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         entryFieldCalc = findViewById(R.id.entryFieldCalc);
 
+        if (savedInstanceState == null){
+            dataCalculator = new DataCalculator();
+        }
+
         initButtons();
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        /*outState.putStringArrayList("dataLine", dataLine);
+        outState.putStringArrayList("numbers", numbers);
+        outState.putStringArrayList("signs", signs);*/
+        dataCalculator.setDataLine(dataLine);
+        dataCalculator.setNumbers(numbers);
+        dataCalculator.setSigns(signs);
+        outState.putParcelable("dataCalculator", dataCalculator);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        dataCalculator = (DataCalculator) savedInstanceState.getParcelable("dataCalculator");
+        dataLine = dataCalculator.getDataLine();
+        numbers = dataCalculator.getNumbers();
+        signs = dataCalculator.getSigns();
+        updateView();
     }
 
     private void initButtons() {
@@ -198,10 +227,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             }
-            if (dataLine.isEmpty() || !contentOperator) {
+            if (!dataLine.isEmpty() && !contentOperator) {
                 long number = Long.parseLong(entryFieldCalc.getText().toString());
                 number *= number;
-                entryFieldCalc.setText(String.valueOf(number));
+                String res = String.valueOf(number);
+                entryFieldCalc.setText(res);
+                dataLine.clear();
+                dataLine.add(res);
             }
         }
         if (view.getId() == R.id.button_square_root){
@@ -214,14 +246,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             }
-            if (dataLine.isEmpty() || !contentOperator) {
+            if (!dataLine.isEmpty() && !contentOperator) {
                 long number = Long.parseLong(entryFieldCalc.getText().toString());
                 double temp = Math.sqrt(number);
+                String res;
                 if (temp % 1 == 0){
-                    entryFieldCalc.setText(String.format("%d", (long)Math.sqrt(number)));
+                    res = String.format("%d", (long)Math.sqrt(number));
+
                 } else {
-                    entryFieldCalc.setText(String.format("%.3f", Math.sqrt(number)));
+                    res = String.format("%.3f", Math.sqrt(number));
                 }
+                entryFieldCalc.setText(res);
+                dataLine.clear();
+                dataLine.add(res);
             }
         }
         if (view.getId() == R.id.button_equal){
@@ -243,8 +280,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     temp1 = "";
                 }
             }
-            entryFieldCalc.setText((calculate(numbers, signs)));
+            String res = calculate(numbers, signs);
+            entryFieldCalc.setText(res);
             dataLine.clear();
+            dataLine.add(res);
             numbers.clear();
             signs.clear();
         }
