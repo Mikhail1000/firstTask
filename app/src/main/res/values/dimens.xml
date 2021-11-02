@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="text_size_entry_field">50sp</dimen>
+    <dimen name="horizontal_padding_entry_field">15dp</dimen>
+    <dimen name="horizontal_padding_between_buttons">2dp</dimen>
+    <dimen name="text_size_buttons">25sp</dimen>
 </resources>
