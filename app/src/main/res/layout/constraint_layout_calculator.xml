@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/nature_sky"
+    android:background="@drawable/fon_android"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -15,8 +15,8 @@
         app:layout_constraintEnd_toEndOf="@id/button_backspace"
         android:text="@string/_0"
         android:textSize="@dimen/text_size_entry_field"
-        android:textColor="@color/white"
-        android:background="@color/cardview_dark_background"
+        android:textColor="@color/text_color_entry_field"
+        android:background="@color/background_color_entry_field"
         android:textAlignment="textEnd"
         android:paddingHorizontal="@dimen/horizontal_padding_entry_field"/>
 
