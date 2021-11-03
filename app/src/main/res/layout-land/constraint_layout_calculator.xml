@@ -23,7 +23,7 @@
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/button_square"
-        app:layout_constraintVertical_bias="0.5555"/>
+        />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_square"
