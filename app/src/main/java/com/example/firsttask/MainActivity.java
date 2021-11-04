@@ -1,8 +1,10 @@
 package com.example.firsttask;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -13,16 +15,21 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    public static final int REQUEST_CODE_SETTING_ACTIVITY = 99;
+    public static final String THEME_NAME = "theme";
     private TextView entryFieldCalc;
     ArrayList<String> dataLine = new ArrayList<>();
     ArrayList<String> numbers = new ArrayList<>();
     ArrayList<String> signs = new ArrayList<>();
 
     private DataCalculator dataCalculator;
+    public static final String PREFERENCES_THEME = "theme";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setTheme(loadAppTheme());
         setContentView(R.layout.constraint_layout_calculator);
 
         entryFieldCalc = findViewById(R.id.entryFieldCalc);
@@ -30,16 +37,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (savedInstanceState == null){
             dataCalculator = new DataCalculator();
         }
-
         initButtons();
     }
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        /*outState.putStringArrayList("dataLine", dataLine);
-        outState.putStringArrayList("numbers", numbers);
-        outState.putStringArrayList("signs", signs);*/
         dataCalculator.setDataLine(dataLine);
         dataCalculator.setNumbers(numbers);
         dataCalculator.setSigns(signs);
@@ -97,10 +100,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button_equal.setOnClickListener(this);
         Button button_div = findViewById(R.id.button_div);
         button_div.setOnClickListener(this);
+        Button button_night = findViewById(R.id.button_settings);
+        button_night.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
+        if (view.getId() == R.id.button_settings){
+            Intent intent = new Intent(this, MainActivity2.class);
+            startActivityForResult(intent, REQUEST_CODE_SETTING_ACTIVITY);
+        }
         if (view.getId() == R.id.button_0){
             if (!dataLine.isEmpty()){
                 if (!dataLine.get(dataLine.size() - 1).equals("0")){
@@ -325,5 +334,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String dataInString = TextUtils.join("", dataLine);
             entryFieldCalc.setText(dataInString);
         }
+    }
+
+    private int loadAppTheme(){
+        String theme = getSharedPreferences(PREFERENCES_THEME,MODE_PRIVATE)
+                .getString(THEME_NAME, "day");
+        if (theme.equals("night")){
+            return R.style.MyStyleDark;
+        } else {
+            return R.style.MyStyleLight;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == REQUEST_CODE_SETTING_ACTIVITY && resultCode == RESULT_OK){
+            recreate();
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

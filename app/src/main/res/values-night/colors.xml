@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="text_color_entry_field">@color/black</color>
+    <color name="background_color_entry_field">#6D6C75</color>
+
+    <color name="background_color_buttons">#8A8796</color>
+    <color name="background_color_settings">#8A8796</color>
+</resources>

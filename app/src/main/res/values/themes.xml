@@ -13,4 +13,40 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="MyStyleLight" parent="Theme.FirstTask">
+        <item name="android:textSize">@dimen/text_size_buttons</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:windowBackground">@drawable/fon_android</item>
+        <item name="android:textViewStyle">@style/textViewLight</item>
+    </style>
+
+    <style name="MyStyleDark" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#8A8796</item>
+        <item name="colorPrimaryVariant">#8A8796</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">@color/black</item>
+        <item name="android:windowBackground">@drawable/fon_android_night</item>
+        <item name="android:textAppearance">@style/textViewDark</item>
+
+    </style>
+
+    <style name="textViewLight">
+        <item name="android:background">@color/purple_500</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="textViewDark" parent="Widget.MaterialComponents.TextView">
+        <item name="android:background">@color/gray</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 </resources>
