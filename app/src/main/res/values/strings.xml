@@ -20,4 +20,7 @@
     <string name="point">.</string>
     <string name="equal">=</string>
     <string name="plus">+</string>
+    <string name="Settings">Настройки</string>
+    <string name="text_switch_night_theme">Ночная тема</string>
+    <string name="Назад">назад</string>
 </resources>

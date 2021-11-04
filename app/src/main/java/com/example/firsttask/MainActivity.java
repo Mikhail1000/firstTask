@@ -1,8 +1,11 @@
 package com.example.firsttask;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -13,16 +16,26 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+
+    public static final int REQUEST_CODE_SETTING_ACTIVITY = 99;
+    public static final String THEME_NAME = "theme";
+    public static final String CHECK_NIGHT = "checkNight";
+    boolean checkedNight;
     private TextView entryFieldCalc;
     ArrayList<String> dataLine = new ArrayList<>();
     ArrayList<String> numbers = new ArrayList<>();
     ArrayList<String> signs = new ArrayList<>();
 
     private DataCalculator dataCalculator;
+    private boolean night = false;
+    public static final String PREFERENCES_THEME = "theme";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setTheme(loadAppTheme());
+
         setContentView(R.layout.constraint_layout_calculator);
 
         entryFieldCalc = findViewById(R.id.entryFieldCalc);
@@ -37,19 +50,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        /*outState.putStringArrayList("dataLine", dataLine);
-        outState.putStringArrayList("numbers", numbers);
-        outState.putStringArrayList("signs", signs);*/
         dataCalculator.setDataLine(dataLine);
         dataCalculator.setNumbers(numbers);
         dataCalculator.setSigns(signs);
-        outState.putParcelable("dataCalculator", dataCalculator);
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         dataCalculator = (DataCalculator) savedInstanceState.getParcelable("dataCalculator");
+        if (dataCalculator == null) {
+            dataCalculator = new DataCalculator();
+        }
+
         dataLine = dataCalculator.getDataLine();
         numbers = dataCalculator.getNumbers();
         signs = dataCalculator.getSigns();
@@ -97,10 +110,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button_equal.setOnClickListener(this);
         Button button_div = findViewById(R.id.button_div);
         button_div.setOnClickListener(this);
+        Button button_night = findViewById(R.id.button_settings);
+        button_night.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
+        if (view.getId() == R.id.button_settings){
+            Intent intent = new Intent(this, MainActivity2.class);
+
+            intent.putExtra("checkedNight", checkedNight);
+
+            startActivityForResult(intent, REQUEST_CODE_SETTING_ACTIVITY);
+
+        }
         if (view.getId() == R.id.button_0){
             if (!dataLine.isEmpty()){
                 if (!dataLine.get(dataLine.size() - 1).equals("0")){
@@ -108,6 +131,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     updateView();
                 }
             }
+            night = !night;
+            if (night) {
+                saveAppTheme("night");
+            } else {
+                saveAppTheme("day");
+            }
+            recreate();
         }
         if (view.getId() == R.id.button_1){
             dataLine.add("1");
@@ -325,5 +355,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String dataInString = TextUtils.join("", dataLine);
             entryFieldCalc.setText(dataInString);
         }
+    }
+
+    private int loadAppTheme(){
+        String theme = getSharedPreferences(PREFERENCES_THEME,MODE_PRIVATE)
+                .getString(THEME_NAME, "day");
+        if (theme.equals("day")) {
+            return R.style.MyStyleLight;
+        } else if (theme.equals("night")){
+            return R.style.MyStyleDark;
+        } else {
+            return R.style.MyStyleLight;
+        }
+    }
+
+
+    private void saveAppTheme(String nameTheme) {
+        SharedPreferences sharedPreferences = getSharedPreferences(PREFERENCES_THEME,MODE_PRIVATE);
+        sharedPreferences.edit()
+                .putString(THEME_NAME, nameTheme)
+                .apply();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
+        if (requestCode == REQUEST_CODE_SETTING_ACTIVITY && resultCode == RESULT_OK && data != null){
+            checkedNight = data.getBooleanExtra(CHECK_NIGHT, false);
+            recreate();
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

@@ -17,6 +17,23 @@
     <style name="MyStyleLight" parent="Theme.FirstTask">
         <item name="android:textSize">@dimen/text_size_buttons</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:windowBackground">@drawable/fon_android</item>
+    </style>
+
+    <style name="MyStyleDark" parent="Theme.FirstTask">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#8A8796</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">@color/black</item>
+        <item name="android:windowBackground">@drawable/fon_android_night</item>
     </style>
 
 </resources>

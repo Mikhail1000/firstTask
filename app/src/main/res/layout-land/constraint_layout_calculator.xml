@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/fon_android">
+    android:layout_height="match_parent">
+    <!--android:background="@drawable/fon_android"-->
 
     <TextView
         android:id="@+id/entryFieldCalc"
@@ -18,7 +18,7 @@
         android:textAlignment="textEnd"
         android:textColor="@color/text_color_entry_field"
         android:textSize="@dimen/text_size_entry_field"
-        app:layout_constraintBottom_toBottomOf="@id/button_0"
+        app:layout_constraintBottom_toTopOf="@id/button_settings"
         app:layout_constraintEnd_toStartOf="@id/button_square"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
@@ -256,5 +256,14 @@
         app:layout_constraintStart_toStartOf="@id/button_backspace"
         app:layout_constraintTop_toBottomOf="@id/button_minus" />
 
+
+    <Button
+        android:id="@+id/button_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Settings"
+        app:layout_constraintStart_toStartOf="@id/entryFieldCalc"
+        app:layout_constraintBottom_toBottomOf="@id/button_0"
+        app:layout_constraintTop_toBottomOf="@id/entryFieldCalc"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
