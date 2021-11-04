@@ -4,4 +4,8 @@
     <dimen name="horizontal_padding_entry_field">15dp</dimen>
     <dimen name="horizontal_padding_between_buttons">2dp</dimen>
     <dimen name="text_size_buttons">25sp</dimen>
+    <dimen name="margin_start_button_return">10dp</dimen>
+    <dimen name="padding_start_switch">30dp</dimen>
+    <dimen name="padding_end_switch">25dp</dimen>
+    <dimen name="text_size_switch">20sp</dimen>
 </resources>

@@ -10,4 +10,6 @@
     <color name="text_color_entry_field">#FFFFFFFF</color>
     <color name="background_color_entry_field">@color/cardview_dark_background</color>
     <color name="background_color_buttons">@color/purple_500</color>
+    <color name="background_color_settings">@color/purple_500</color>
+    <color name="gray">#8A8796</color>
 </resources>
